@@ -1,0 +1,43 @@
+_repo: The-Red-Badge-of-Courage--An-Episode-of-the-American-Civil-War_463
+_version: 0.0.1
+creator:
+  author:
+    agent_name: Crane, Stephen
+    alias: Smith, Johnston
+    birthdate: 1871
+    deathdate: 1900
+    gutenberg_agent_id: '55'
+    url: http://www.gutenberg.org/2009/agents/55
+    wikipedia: http://en.wikipedia.org/wiki/Stephen_Crane
+description: 'CLASSIC FICTION (PRE C 1945). With an Introduction by Richard Jenseth,
+  St Lawrence University, "The Red Badge of Courage" is one of the greatest war novels
+  of all time. It reports on the American Civil War through the eyes of Henry Fleming,
+  an ordinary farm boy turned soldier. It evokes the chaos and the dull clatter of
+  war: the acrid smoke, the incessant rumours of coming battles, the filth and cold,
+  the numbing monotony, the unworldly wailing of the dying. Like an impressionist
+  painter, Crane also captures the strange beauty of war: the brilliant red flags
+  against a blue sky, steel bayonets flashing in the morning sun as soldiers step
+  off into battle. In the midst of this chaotic outer world, he creates an intricate
+  inner world as he takes us inside the head of Henry Fleming.'
+gutenberg_bookshelf:
+- US Civil War
+- Bestsellers, American, 1895-1923
+- Historical Fiction
+gutenberg_issued: '1996-03-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '463'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'War stories'
+- !lcc 'PS'
+- !lcsh 'United States -- History -- Civil War, 1861-1865 -- Fiction'
+- !lcsh 'Historical fiction'
+- !lcsh 'Virginia -- History -- Civil War, 1861-1865 -- Fiction'
+- !lcsh 'Chancellorsville, Battle of, Chancellorsville, Va., 1863 -- Fiction'
+- GITenberg
+title: 'The Red Badge of Courage: An Episode of the American Civil War'
+url: http://www.gutenberg.org/ebooks/463
