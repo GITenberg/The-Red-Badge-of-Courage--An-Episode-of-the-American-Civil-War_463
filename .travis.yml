@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: lgei3ChqDKCLdlu5au4D3QAn6xwxtoHdlFUqNDUdJFsFnuJsr/+8zFFnAd0a8Ru0ZkmfxhfSpcQcBzCuh4oHvJQaCvBDNSPVVgn/ZjQ9Duzlo5Y5pfUj49ssJRIHqcH01CLDb2qVf1bksm32HjXYxXknJ3D2WLlS7iquo/tZnWAbe6JX1POKatg4POaeSFd6VBKWxBm9ELrrd6CW6S142fNg/i8VDpYma5vFwCnfOmwT3ycACJQvkKIVPOIvRKEjqAyvckV0VbR6mJMVzcjXMxnJM7KhHISsufsPYd2Tghrth09TZPiSN2vhgxWOy7I/PQL7KqQFM09rODrM/THAGtzdkC1tWQERmybngoDziHBaKOuAfGP4juXwHP9ZZ0iMbWGFdjtW/F1ofPXZG8XNDT984lUczYmpDE3LV1a6TkMcQzuIzuK0zWhoJ4WWKihINyH5Brm4NVoeM5ri4jN6UvfAxQdKwfPGcnXxQwsOWEO2GPz4E0zOjDYbWFX05DaVVePN88PDvKotEHUL5OadZOji8TQUJreVhF0Dw9AhbRM5tAubxRjv68OU3RRn4X0I1JkHiPiUbbKCxGF+wfuWpNlh6netAmei/5wW06Qmq6bLCXMGaZ9IkwRiAx6/8cQuMI2iQ2WIuK+A08E6vLjyGlQ5kRL52L6Xe0dqv8kTtpo=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/The-Red-Badge-of-Courage--An-Episode-of-the-American-Civil-War_463
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
